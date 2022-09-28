@@ -1,0 +1,8 @@
+work/
+singularity/
+results/
+.nextflow/
+.nextflow*
+dataset/cadd-1.6-SNVs-phred10-GRCh37.zip
+dataset/gnomad-2.1.1-genome-GRCh37.zip
+dataset/Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10000.vcf.gz

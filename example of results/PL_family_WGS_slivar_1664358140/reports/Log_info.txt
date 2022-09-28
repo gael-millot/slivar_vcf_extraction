@@ -1,0 +1,2 @@
+full .nextflow.log is in: /pasteur/zeus/projets/p01/BioIT/gmillot/08002_bourgeron
+The one in the result folder is not complete (miss the end)

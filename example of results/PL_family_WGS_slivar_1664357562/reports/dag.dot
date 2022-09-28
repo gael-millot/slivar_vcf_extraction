@@ -1,0 +1,54 @@
+digraph "dag" {
+p1 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p1 -> p11 [label="vcf"];
+
+p2 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p2 -> p11 [label="fun"];
+
+p3 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p3 -> p11 [label="annot1"];
+
+p4 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p4 -> p11 [label="annot2"];
+
+p5 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p5 -> p11 [label="ped"];
+
+p6 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p6 -> p11 [label="sample_expr"];
+
+p7 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p7 -> p11 [label="pedigree_expr"];
+
+p8 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p8 -> p11 [label="filter"];
+
+p9 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p9 -> p11 [label="tsv_sample"];
+
+p10 [shape=point,label="",fixedsize=true,width=0.1];
+p11 [label="slivar"];
+p10 -> p11 [label="tsv_info"];
+
+p12 [shape=point,label="",fixedsize=true,width=0.1];
+p15 [label="Backup"];
+p12 -> p15 [label="config_file"];
+
+p13 [shape=point,label="",fixedsize=true,width=0.1];
+p15 [label="Backup"];
+p13 -> p15 [label="log_file"];
+
+p14 [shape=point,label="",fixedsize=true,width=0.1];
+p15 [label="Backup"];
+p14 -> p15 [label="fun"];
+
+}
