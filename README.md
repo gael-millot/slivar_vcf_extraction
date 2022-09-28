@@ -33,8 +33,8 @@ Return both a .vcf and a .tsv file
 Warning: the code uses these following commands of slivar (see protocol 143 for details):
 
 ```bash
-    slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} --pass-only ${family_expr} -o "res.vcf"
-    slivar tsv --ped ${ped} ${sample} ${info} res.vcf > res.tsv
+    slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
+    slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} res.vcf > res.tsv
 ```
 
 Thus, pay attention with the family_expr, sample and info parameters in the slivar_vcf_extraction.config file.
@@ -281,35 +281,6 @@ Gitlab developers
 
 <br /><br />
 ## WHAT'S NEW IN
-
-### v1.6
-
-annotation only fixed
-
-
-### v1.5
-
-Code improved
-
-
-### v1.4
-
-Checks added
-
-
-### v1.3
-
-Now the script deals with .gz and non .gz vcf (with or without .tbi index file)
-
-
-### v1.2
-
-First attempt to use this script for annotation only
-
-
-### v1.1
-
-Correct examples of results
 
 
 ### v1.0
