@@ -72,8 +72,11 @@ if( ! sample_expr in String ){
 if( ! pedigree_expr in String ){
     error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID pedigree_expr PARAMETER IN nextflow.config FILE:\n${pedigree_expr}\nMUST BE A SINGLE CHARACTER STRING\n\n========\n\n"
 }
-if( ! filter in String ){
-    error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID filter PARAMETER IN nextflow.config FILE:\n${filter}\nMUST BE THE SINGLE CHARACTER STRING true OR false\n\n========\n\n"
+if( ! (filter == "true" || filter == "false")){
+    error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID filter PARAMETER IN nextflow.config FILE:\n${filter}\nMUST BE THE SINGLE CHARACTER STRING \"true\" OR \"false\"\n\n========\n\n"
+}
+if( ! (tsv_file == "true" || tsv_file == "false")){
+    error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID tsv_file PARAMETER IN nextflow.config FILE:\n${tsv_file}\nMUST BE THE SINGLE CHARACTER STRING \"true\" OR \"false\"\n\n========\n\n"
 }
 if( ! tsv_sample in String ){
     error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID tsv_sample PARAMETER IN nextflow.config FILE:\n${tsv_sample}\nMUST BE A SINGLE CHARACTER STRING\n\n========\n\n"
@@ -145,10 +148,10 @@ process WorkflowVersion { // create a file with the workflow version in out_path
 
 
 
-process slivar {
+process slivar_extract {
     label 'slivar' // see the withLabel: bash in the nextflow config file 
-    publishDir path: "${out_path}", mode: 'copy', overwrite: false
-    cache 'false'
+    //publishDir path: "${out_path}", mode: 'copy', overwrite: false
+    cache 'true'
 
     //no channel input here for the vcf, because I do not transform it
     input:
@@ -160,25 +163,71 @@ process slivar {
     val sample_expr
     val pedigree_expr
     val filter
+    // see the scope for the use of affected_patients which is already a variable from .config file
+
+    output:
+    file "res.vcf" into vcf_ch1, vcf_ch2
+
+    script:
+    """
+    #!/bin/bash -ue
+    slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
+    """
+    // write ${} between "" to make a single argument when the variable is made of several values separated by a space. Otherwise, several arguments will be considered
+}
+
+
+process slivar_tsv {
+    label 'slivar' // see the withLabel: bash in the nextflow config file 
+    publishDir path: "${out_path}", mode: 'copy', overwrite: false
+    cache 'true'
+
+    //no channel input here for the vcf, because I do not transform it
+    input:
+    file vcf from vcf_ch1
+    file ped
+    val tsv_file
     val tsv_sample
     val tsv_info
     // see the scope for the use of affected_patients which is already a variable from .config file
 
     output:
-    file "res.vcf"
-    file "res.tsv"
+        file "res.*" optional true
+
 
     script:
     """
     #!/bin/bash -ue
-
-    # add the modification of the pedigree if 
-    slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
-    slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} res.vcf > res.tsv
+    if [[ ${tsv_file} == true ]] ; then 
+        slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} ${vcf} > res.tsv
+        gzip -f res.tsv 
+    fi
     """
     // write ${} between "" to make a single argument when the variable is made of several values separated by a space. Otherwise, several arguments will be considered
 }
 
+process slivar_vcf_compress {
+    label 'slivar' // see the withLabel: bash in the nextflow config file 
+    publishDir path: "${out_path}", mode: 'copy', overwrite: false
+    cache 'true'
+
+    //no channel input here for the vcf, because I do not transform it
+    input:
+    file vcf from vcf_ch2
+    // see the scope for the use of affected_patients which is already a variable from .config file
+
+    output:
+    file "res.*"
+
+
+    script:
+    """
+    #!/bin/bash -ue
+    bgzip -cf -l 9 ${vcf} > res.vcf.gz # htslib command, -l 9 best compression, -c to standard output, -f to force without asking
+    tabix -p vcf res.vcf.gz # htslib command
+    """
+    // write ${} between "" to make a single argument when the variable is made of several values separated by a space. Otherwise, several arguments will be considered
+}
 
 
 

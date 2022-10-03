@@ -28,7 +28,7 @@ Use [slivar](https://github.com/brentp/slivar) on a VCF file to:
 <br /><ul><li>annotate
 <br /></li><li>filter (according to quality, family criteria, ect.)
 </li><br /><br />
-Return both a .vcf and a .tsv file
+Return both an indexed .vcf.gz and a .tsv.gz file
 <br /><br />
 Warning: the code uses these following commands of slivar (see protocol 143 for details):
 
@@ -62,8 +62,8 @@ Thus, pay attention with the family_expr, sample and info parameters in the sliv
 <br />
 | File | Description |
 | --- | --- |
-| **PL_family_WGS_slivar_1664358140** | example of filtering and annotation, obtained using the whole dataset sample_path="/pasteur/zeus/projets/p02/ghfc_wgs_zeus/WGS/Dyslexia/vcf/Dyslexia.gatk-vqsr.splitted.norm.vep.merged.vcf.gz" |
-| **PL_family_WGS_slivar_1664357562** | example of annotation without slivar filtering, obtained using the example dataset sample_path="/mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/dataset/Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10.vcf" |
+| **PL_family_WGS_slivar_1664813804** | example of filtering and annotation, obtained using the whole dataset sample_path="/pasteur/zeus/projets/p02/ghfc_wgs_zeus/WGS/Dyslexia/vcf/Dyslexia.gatk-vqsr.splitted.norm.vep.merged.vcf.gz" |
+| **PL_family_WGS_slivar_1664807682** | example of annotation without slivar filtering, obtained using the example dataset sample_path="/mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/dataset/Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10.vcf" |
 
 &nbsp;&nbsp;&nbsp;&nbsp;See the OUTPUT section for the description of the folder and files.
 
@@ -200,9 +200,9 @@ rm -rf /pasteur/sonic/homes/gmillot/.nextflow/assets/gmillot*
 
 **reports**: folder containing all the reports of the different processes including the *slivar_vcf_extraction.config* file used.
 <br /><br />
-**res.vcf**: annotated and filtered VCF file.
+**res.vcf.gz**: annotated and filtered VCF file
 <br /><br />
-**res.tsv**: VCF file converted into a table, each row representing a different variant and a different patient, and with columns (depending on the tsv_info parameter):
+**res.tsv.gz**: VCF file converted into a table, each row representing a different variant and a different patient, and with columns (depending on the tsv_info parameter):
 <br />
 
 | File | Description |
@@ -281,6 +281,11 @@ Gitlab developers
 
 <br /><br />
 ## WHAT'S NEW IN
+
+
+### v2.0
+
+Compression added, tsv file optional
 
 
 ### v1.0

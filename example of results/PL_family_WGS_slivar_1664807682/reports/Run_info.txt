@@ -1,9 +1,9 @@
 Project (empty means no .git folder where the main.nf file is present):  origin git@gitlab.pasteur.fr:gmillot/slivar_vcf_extraction.git (fetch)
-Git info (empty means no .git folder where the main.nf file is present):  v1.3-5-g452bdf066b-dirty
+Git info (empty means no .git folder where the main.nf file is present):  v1.0-1-g39d9669a0a-dirty
 Cmd line: nextflow run slivar_vcf_extraction.nf -c slivar_vcf_extraction.config
 execution mode: local
 Manifest's pipeline version: null
-result path: /mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/results/PL_family_WGS_slivar_1664357562
+result path: /mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/results/PL_family_WGS_slivar_1664807682
 nextflow version: 21.04.2
 
 
@@ -16,5 +16,5 @@ workDir (directory where tasks temporary files are created): /mnt/c/Users/Gael/D
 
 USER VARIABLES:
 
-out_path: /mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/results/PL_family_WGS_slivar_1664357562
+out_path: /mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/results/PL_family_WGS_slivar_1664807682
 sample_path: /mnt/c/Users/Gael/Documents/Git_projects/slivar_vcf_extraction/dataset/Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10.vcf

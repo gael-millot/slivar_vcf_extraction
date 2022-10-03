@@ -1,4 +1,0 @@
-task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
-3	00/e6eb69	29539507	Backup	COMPLETED	0	2022-09-28 11:42:21.685	9.7s	14ms	5.4%	0	0	122.3 KB	1.5 KB
-1	60/eb369a	29539508	WorkflowVersion	COMPLETED	0	2022-09-28 11:42:21.744	9.7s	519ms	4.6%	5.2 MB	38.5 MB	151.1 KB	3.3 KB
-2	36/8a923b	29539509	slivar	COMPLETED	0	2022-09-28 11:42:21.799	17m 40s	17m 31s	95.3%	2.2 GB	2.3 GB	6.5 GB	848.1 KB
