@@ -179,10 +179,10 @@ Then run:
 
 ```bash
 # distant slivar_vcf_extraction.nf file
-HOME="$ZEUSHOME/08002_bourgeron/" ; nextflow run --modules ${MODULES} -hub pasteur gmillot/slivar_vcf_extraction -r v7.10.0 -c $HOME/slivar_vcf_extraction.config ; HOME="/pasteur/appa/homes/gmillot/"
+HOME="${ZEUSHOME}/slivar_vcf_extraction/" ; trap '' SIGINT ; nextflow run --modules ${MODULES} -hub pasteur gmillot/slivar_vcf_extraction -r v1.0 -c $HOME/slivar_vcf_extraction.config ; HOME="/pasteur/appa/homes/gmillot/"  ; trap SIGINT
 
-# local slivar_vcf_extraction.nf file ($HOME changed to allow the creation of .nextflow into /$ZEUSHOME/08002_bourgeron/. See NFX_HOME in the nextflow soft script)
-HOME="$ZEUSHOME/08002_bourgeron/" ; nextflow run --modules ${MODULES} slivar_vcf_extraction.nf -c slivar_vcf_extraction.config ; HOME="/pasteur/appa/homes/gmillot/"
+# local slivar_vcf_extraction.nf file ($HOME changed to allow the creation of .nextflow into /$ZEUSHOME/slivar_vcf_extraction/. See NFX_HOME in the nextflow soft script)
+HOME="${ZEUSHOME}/slivar_vcf_extraction/" ; trap '' SIGINT ; nextflow run --modules ${MODULES} slivar_vcf_extraction.nf -c slivar_vcf_extraction.config ; HOME="/pasteur/appa/homes/gmillot/" ; trap SIGINT
 ```
 
 If an error message appears, like:

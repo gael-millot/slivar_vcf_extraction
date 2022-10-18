@@ -1,3 +1,4 @@
+nextflow.enable.dsl=1
 /*
 #########################################################################
 ##                                                                     ##
@@ -88,6 +89,7 @@ if( ! tsv_info in String ){
 // below : those variable are already used in the config file. Thus, to late to check them. And not possible to check inside the config file
 // system_exec
 // out_ini
+print("\n\nRESULT DIRECTORY: ${out_path}")
 print("\n\nWARNING: PARAMETERS ALREADY INTERPRETED IN THE .config FILE:")
 print("    system_exec: ${system_exec}")
 print("    out_path: ${out_path_ini}")
