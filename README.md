@@ -51,7 +51,7 @@ Thus, pay attention with the family_expr, sample and info parameters in the next
 | --- | --- |
 | **main.nf** | File that can be executed using a linux terminal, a MacOS terminal or Windows 10 WSL2. |
 | **nextflow.config** | Parameter settings for the *main.nf* file. Users have to open this file, set the desired settings and save these modifications before execution. |
-| **bin folder** | Contains the *slivar-functions.js* file that need to be set by the user before running |
+| **bin folder** | Contains the *slivar-functions.js* file that need to be set by the user before running. |
 
 <br /><br />
 ## INPUT
@@ -63,16 +63,17 @@ Thus, pay attention with the family_expr, sample and info parameters in the next
 | Pedigree file. |
 | Cadd annotation file. |
 | Gnomad annotation file1. |
+
 <br /><br />
 The dataset used in the *nextflow.config* file, as example, is available at https://zenodo.org/records/10075643/files/slivar_vcf_extraction.zip
 
 
 | Dataset folder | Description |
 | --- | --- |
-| **Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10000.vcf.gz** | VCF file |
-| **Dyslexia.pedigree.txt** | Pedigree file |
-| **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10 |
-| **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1 |
+| **Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10000.vcf.gz** | VCF file. |
+| **Dyslexia.pedigree.txt** | Pedigree file. |
+| **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. |
+| **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1. |
 
 
 <br /><br />
@@ -220,6 +221,7 @@ An example of results obtained with the dataset is present at this address: http
 | --- | --- |
 | **PL_family_WGS_slivar_1664813804** | example of filtering and annotation, obtained using the whole dataset Dyslexia.gatk-vqsr.splitted.norm.vep.merged.vcf.gz |
 | **PL_family_WGS_slivar_1664807682** | example of annotation without slivar filtering, obtained using the example dataset Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10.vcf |
+
 <br /><br />
 In each folder:
 <br />
@@ -273,7 +275,7 @@ The developers & maintainers of the mentioned softwares and packages, including:
 - [Bash](https://www.gnu.org/software/bash/)
 - [Ubuntu](https://ubuntu.com/)
 
-Special acknowledgement to [Brent Pedersen ](https://github.com/brentp), Utrecht, The Netherlands, for the release of slivar
+Special acknowledgement to [Brent Pedersen ](https://github.com/brentp), Utrecht, The Netherlands, for the release of [slivar](https://github.com/brentp/slivar).
 
 <br /><br />
 ## WHAT'S NEW IN
