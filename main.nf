@@ -22,7 +22,7 @@ params.modules = ""
 
 //////// Variables
 
-config_file = file("${projectDir}/slivar_vcf_extraction.config")
+config_file = workflow.configFiles[0] // better to use this than config_file = file("${projectDir}/nextflow.config") because the latter is not good if -c option of nextflow run is used // file() create a path object necessary o then create the file
 log_file = file("${launchDir}/.nextflow.log")
 modules = params.modules // remove the dot -> can be used in bash scripts
 

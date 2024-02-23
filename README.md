@@ -1,10 +1,9 @@
-[//]: # "#to make links in gitlab: example with racon https://github.com/isovic/racon"
-[//]: # "tricks in markdown: https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown"
-
-| usage | dependencies |
+| Usage | Requirement |
 | --- | --- |
 | [![Nextflow](https://img.shields.io/badge/code-Nextflow-blue?style=plastic)](https://www.nextflow.io/) | [![Dependencies: Nextflow Version](https://img.shields.io/badge/Nextflow-v21.04.2-blue?style=plastic)](https://github.com/nextflow-io/nextflow) |
 | [![License: GPL-3.0](https://img.shields.io/badge/licence-GPL%20(%3E%3D3)-green?style=plastic)](https://www.gnu.org/licenses) | [![Dependencies: Apptainer Version](https://img.shields.io/badge/Apptainer-v1.2.3-blue?style=plastic)](https://github.com/apptainer/apptainer) |
+| | [![Dependencies: Graphviz Version](https://img.shields.io/badge/Graphviz-v2.42.2-blue?style=plastic)](https://www.graphviz.org/download/) |
+
 
 <br /><br />
 ## TABLE OF CONTENTS
@@ -82,7 +81,7 @@ The dataset used in the *nextflow.config* file, as example, is available at http
 ### 1. Prerequisite
 
 Installation of:<br />
-[nextflow DSL1](https://github.com/nextflow-io/nextflow)<br />
+[nextflow DSL2](https://github.com/nextflow-io/nextflow)<br />
 [Graphviz](https://www.graphviz.org/download/), `sudo apt install graphviz` for Linux ubuntu<br />
 [Apptainer](https://github.com/apptainer/apptainer)<br />
 
@@ -259,7 +258,7 @@ Not yet published
 
 [Freddy Cliquet](https://gitlab.pasteur.fr/fcliquet), GHFC, Institut Pasteur, Paris, France
 
-[Gael A. Millot](https://gitlab.pasteur.fr/gmillot), Hub-CBD, Institut Pasteur, Paris, France
+[Gael A. Millot](https://gitlab.pasteur.fr/gmillot), Hub, Institut Pasteur, Paris, France
 
 <br /><br />
 ## ACKNOWLEDGEMENTS
@@ -275,7 +274,7 @@ The developers & maintainers of the mentioned softwares and packages, including:
 - [Bash](https://www.gnu.org/software/bash/)
 - [Ubuntu](https://ubuntu.com/)
 
-Special acknowledgement to [Brent Pedersen ](https://github.com/brentp), Utrecht, The Netherlands, for the release of [slivar](https://github.com/brentp/slivar).
+Special acknowledgement to [Brent Pedersen](https://github.com/brentp), Utrecht, The Netherlands, for the release of [slivar](https://github.com/brentp/slivar).
 
 <br /><br />
 ## WHAT'S NEW IN
