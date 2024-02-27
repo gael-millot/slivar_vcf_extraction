@@ -34,7 +34,12 @@ Return both an indexed .vcf.gz and a .tsv.gz file.
 <br /><br />
 ## WARNINGS
 
-The code uses these following commands of slivar (see protocol 143 for details, contact Gael Millot):
+- Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed:
+
+
+
+
+- The code uses these following commands of slivar (see protocol 143 for details, contact Gael Millot):
 
 <pre>
 slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
