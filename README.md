@@ -34,48 +34,48 @@ Return both an indexed .vcf.gz and a .tsv.gz file.
 <br /><br />
 ## WARNINGS
 
-- Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed:
-
-
-
-
-- The code uses these following commands of slivar (see protocol 143 for details, contact Gael Millot):
+- Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions,
+This allows to install the `nextflow-dls1` command, used below.
+- The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
 
 <pre>
 slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
 slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} res.vcf > res.tsv
 </pre>
 
-Thus, pay attention with the family_expr, sample and info parameters in the nextflow.config file.
+        Thus, pay attention with the family_expr, sample and info parameters in the nextflow.config file.
 
 <br /><br />
 ## CONTENT
 
-| slivar_vcf_extraction folder | Description |
+| Files and folder | Description |
 | --- | --- |
 | **main.nf** | File that can be executed using a linux terminal, a MacOS terminal or Windows 10 WSL2. |
 | **nextflow.config** | Parameter settings for the *main.nf* file. Users have to open this file, set the desired settings and save these modifications before execution. |
-| **bin folder** | Contains the *slivar-functions.js* file that need to be set by the user before running. |
+| **bin folder** | Contains files required by the *main.nf* file. |
 
 <br /><br />
 ## INPUT
 
 | Required files |
 | --- |
-| Variant Calling Format (VCF) file (zipped or not). |
-| Jason file containing functions for the slivar --family-expr option. This file is present in the *bin* folder describe above. |
-| Pedigree file. |
-| Cadd annotation file. |
-| Gnomad annotation file1. |
+| A variant Calling Format (VCF) file (zipped or not). |
+| A jason file containing functions for the slivar --family-expr option. This file is present in the *bin* folder describe above. |
+| A pedigree file. |
+| A Cadd annotation file. |
+| A Gnomad annotation file. |
 
-<br /><br />
-The dataset used in the *nextflow.config* file, as example, is available at https://zenodo.org/records/10075643/files/slivar_vcf_extraction.zip
+<br />
+
+The dataset used in the *nextflow.config* file, as example, is available at https://zenodo.org/records/10684495.
+
+<br />
 
 
 | Dataset folder | Description |
 | --- | --- |
-| **Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10000.vcf.gz** | VCF file. |
-| **Dyslexia.pedigree.txt** | Pedigree file. |
+| **example.vcf.gz** | VCF file. |
+| **pedigree.txt** | Pedigree file. |
 | **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. |
 | **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1. |
 
@@ -86,23 +86,23 @@ The dataset used in the *nextflow.config* file, as example, is available at http
 ### 1. Prerequisite
 
 Installation of:<br />
-[nextflow DSL2](https://github.com/nextflow-io/nextflow)<br />
+[nextflow DSL1](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567)<br />
 [Graphviz](https://www.graphviz.org/download/), `sudo apt install graphviz` for Linux ubuntu<br />
 [Apptainer](https://github.com/apptainer/apptainer)<br />
 
-<br /><br />
+
 ### 2. Local running (personal computer)
 
 
-#### 2.1. *main.nf* file in the personal computer
+####	2.1. *main.nf* file in the personal computer
 
 - Mount a server if required:
 
-<pre>
+```
 DRIVE="Z" # change the letter to fit the correct drive
 sudo mkdir /mnt/share
 sudo mount -t drvfs $DRIVE: /mnt/share
-</pre>
+```
 
 Warning: if no mounting, it is possible that nextflow does nothing, or displays a message like:
 <pre>
@@ -112,29 +112,30 @@ Launching `main.nf` [loving_morse] - revision: d5aabe528b
 
 - Run the following command from where the *main.nf* and *nextflow.config* files are (example: \\wsl$\Ubuntu-20.04\home\gael):
 
-<pre>
-nextflow run main.nf -c nextflow.config
-</pre>
+```
+nextflow-dsl1 run main.nf -c nextflow.config
+```
 
 with -c to specify the name of the config file used.
 
-<br /><br />
-#### 2.3. *main.nf* file in the public gitlab repository
+
+#### 2.2.	*main.nf* file in the public git repository
 
 Run the following command from where you want the results:
 
-<pre>
-nextflow run -hub pasteur gmillot/slivar_vcf_extraction -r v1.0.0
-</pre>
+```
+nextflow-dsl1 run gael-millot/slivar_vcf_extraction # github, or nextflow-dsl1 run http://github.com/gael-millot/slivar_vcf_extraction
+nextflow-dsl1 run -hub pasteur gmillot/slivar_vcf_extraction -r v1.0.0 # gitlab
+```
 
-<br /><br />
+
 ### 3. Distant running (example with the Pasteur cluster)
 
-#### 3.1. Pre-execution
+####	3.1. Pre-execution
 
 Copy-paste this after having modified the EXEC_PATH variable:
 
-<pre>
+```
 EXEC_PATH="/pasteur/zeus/projets/p01/BioIT/gmillot/slivar_vcf_extraction" # where the bin folder of the main.nf script is located
 export CONF_BEFORE=/opt/gensoft/exe # on maestro
 
@@ -149,64 +150,64 @@ export GRAPHVIZ_CONF_AFTER=bin/graphviz # on maestro
 
 MODULES="${CONF_BEFORE}/${JAVA_CONF}/${JAVA_CONF_AFTER},${CONF_BEFORE}/${APP_CONF}/${APP_CONF_AFTER},${CONF_BEFORE}/${GIT_CONF}/${GIT_CONF_AFTER}/${GRAPHVIZ_CONF}/${GRAPHVIZ_CONF_AFTER}"
 cd ${EXEC_PATH}
-chmod 755 ${EXEC_PATH}/bin/*.* # not required if no bin folder
+chmod 755 ${EXEC_PATH}/bin/*.*
 module load ${JAVA_CONF} ${APP_CONF} ${GIT_CONF} ${GRAPHVIZ_CONF}
-</pre>
+```
 
-<br /><br />
-#### 3.2. *main.nf* file in a cluster folder
+
+####	3.2. *main.nf* file in a cluster folder
 
 Modify the second line of the code below, and run from where the *main.nf* and *nextflow.config* files are (which has been set thanks to the EXEC_PATH variable above):
 
-<pre>
+```
 HOME_INI=$HOME
 HOME="${ZEUSHOME}/slivar_vcf_extraction/" # $HOME changed to allow the creation of .nextflow into /$ZEUSHOME/slivar_vcf_extraction/, for instance. See NFX_HOME in the nextflow software script
 trap '' SIGINT
-nextflow run --modules ${MODULES} main.nf -c nextflow.config
+nextflow-dsl1 run --modules ${MODULES} main.nf -c nextflow.config
 HOME=$HOME_INI
 trap SIGINT
-</pre>
+```
 
-<br /><br />
-#### 3.3. *main.nf* file in the public gitlab repository
+
+####	3.3. *main.nf* file in the public git repository
 
 Modify the first and third lines of the code below, and run (results will be where the EXEC_PATH variable has been set above):
 
-<pre>
+```
 VERSION="v1.0"
 HOME_INI=$HOME
 HOME="${ZEUSHOME}/slivar_vcf_extraction/" # $HOME changed to allow the creation of .nextflow into /$ZEUSHOME/slivar_vcf_extraction/, for instance. See NFX_HOME in the nextflow software script
 trap '' SIGINT
-nextflow run --modules ${MODULES} -hub pasteur gmillot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config
+nextflow-dsl1 run --modules ${MODULES} gael-millot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config #github, or nextflow-dsl1 run --modules ${MODULES} http://github.com/gael-millot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config
+nextflow-dsl1 run --modules ${MODULES} -hub pasteur gmillot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config # gitlab
 HOME=$HOME_INI
 trap SIGINT
-</pre>
+```
 
-<br /><br />
+
 ### 4. Error messages and solutions
 
-#### Message 1
-```
-Unknown error accessing project `gmillot/slivar_vcf_extraction` -- Repository may be corrupted: /pasteur/sonic/homes/gmillot/.nextflow/assets/gmillot/slivar_vcf_extraction
-```
-
-Purge using:
+####	Message 1
 <pre>
-rm -rf /pasteur/sonic/homes/gmillot/.nextflow/assets/gmillot*
+Unknown error accessing project `gmillot/slivar_vcf_extraction` -- Repository may be corrupted: /pasteur/sonic/homes/gmillot/.nextflow/assets/gmillot/slivar_vcf_extraction
 </pre>
 
-#### Message 2
+Purge using:
 ```
+rm -rf /pasteur/sonic/homes/gmillot/.nextflow/assets/gmillot*
+```
+
+####	Message 2
+<pre>
 WARN: Cannot read project manifest -- Cause: Remote resource not found: https://gitlab.pasteur.fr/api/v4/projects/gmillot%2Fslivar_vcf_extraction
-```
+</pre>
 
 Contact Gael Millot (distant repository is not public).
 
-#### Message 3
-
-```
+####	Message 3
+<pre>
 permission denied
-```
+</pre>
 
 Use chmod to change the user rights. Example linked to files in the bin folder: 
 ```
