@@ -36,8 +36,11 @@ Return both an indexed .vcf.gz and a .tsv.gz file.
 ## WARNINGS
 <br />
 <ul><li>
+
 Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions. This allows to install the `nextflow-dls1` command, used below.
+
 <br /></li><li>
+
 The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
 
 ```
