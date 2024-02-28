@@ -34,9 +34,11 @@ Return both an indexed .vcf.gz and a .tsv.gz file.
 
 <br /><br />
 ## WARNINGS
-
-<ul><li>Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions. This allows to install the `nextflow-dls1` command, used below.
-<br /></li><li>The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
+<br />
+<ul><li>
+Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions. This allows to install the `nextflow-dls1` command, used below.
+<br /></li><li>
+The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
 
 ```
 slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
@@ -76,7 +78,7 @@ The dataset used in the *nextflow.config* file, as example, is available at http
 | Files | Description |
 | --- | --- |
 | **example.vcf.gz** | VCF file. Available [here](https://zenodo.org/records/10723664/files/example.vcf.gz). |
-| **pedigree.txt** | Pedigree file. Available [here](https://zenodo.org/records/10723664/files/pedigree.txt). |
+| **pedigree.txt** | Pedigree file. Available [here](https://zenodo.org/records/10723664/files/pedigree.txt?download=1). |
 | **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. Available [here](https://zenodo.org/records/10723664/files/cadd-1.6-SNVs-phred10-GRCh37.zip). |
 | **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1. Available [here](https://zenodo.org/records/10723664/files/gnomad-2.1.1-genome-GRCh37.zip). |
 
