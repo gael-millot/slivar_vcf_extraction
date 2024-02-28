@@ -28,22 +28,23 @@
 Use [slivar](https://github.com/brentp/slivar) on a VCF file to:
 <br /><ul><li>annotate.
 <br /></li><li>filter (according to quality, family criteria, ect.).
-</li><br />
+</li></ul>
+<br />
 Return both an indexed .vcf.gz and a .tsv.gz file.
 
 <br /><br />
 ## WARNINGS
 
-- Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions,
-This allows to install the `nextflow-dls1` command, used below.
-- The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
+<ul><li>Use nextflow DSL1. To install DSL1 and use it when DSL2 is already installed, see these [java](https://gael-millot.github.io/protocols/docs/Protocol%20165-rev0%20JAVA.html) and [nextflow](https://gael-millot.github.io/protocols/docs/Protocol%20152-rev0%20DSL2.html#_Toc159950567) instructions. This allows to install the `nextflow-dls1` command, used below.
+<br /></li><li>The code uses these following commands of slivar (see this [slivar](https://gael-millot.github.io/protocols/docs/Protocol%20143-rev0%20SLIVAR.html) webpage for details):
 
-<pre>
+```
 slivar expr --js ${fun} -g ${annot1} -g ${annot2} --vcf ${vcf} --ped ${ped} ${sample_expr} ${pedigree_expr} ${filter} -o "res.vcf"
 slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} res.vcf > res.tsv
-</pre>
-
-        Thus, pay attention with the family_expr, sample and info parameters in the nextflow.config file.
+```
+<br />
+Thus, pay attention with the family_expr, sample and info parameters in the nextflow.config file.
+</li></ul>
 
 <br /><br />
 ## CONTENT
@@ -67,17 +68,17 @@ slivar tsv --ped ${ped} -s ${tsv_sample} ${tsv_info} res.vcf > res.tsv
 
 <br />
 
-The dataset used in the *nextflow.config* file, as example, is available at https://zenodo.org/records/10684495.
+The dataset used in the *nextflow.config* file, as example, is available at https://zenodo.org/records/10723664.
 
 <br />
 
 
-| Dataset folder | Description |
+| Files | Description |
 | --- | --- |
-| **example.vcf.gz** | VCF file. |
-| **pedigree.txt** | Pedigree file. |
-| **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. |
-| **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1. |
+| **example.vcf.gz** | VCF file. Available [here](https://zenodo.org/records/10723664/files/example.vcf.gz). |
+| **pedigree.txt** | Pedigree file. Available [here](https://zenodo.org/records/10723664/files/pedigree.txt). |
+| **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. Available [here](https://zenodo.org/records/10723664/files/cadd-1.6-SNVs-phred10-GRCh37.zip). |
+| **gnomad-2.1.1-genome-GRCh37.zip** | Gnomad variant annotation v2.1.1. Available [here](https://zenodo.org/records/10723664/files/gnomad-2.1.1-genome-GRCh37.zip). |
 
 
 <br /><br />
@@ -218,19 +219,9 @@ chmod 755 bin/*.*
 <br /><br />
 ## OUTPUT
 
-An example of results obtained with the dataset is present at this address: https://zenodo.org/records/10075643/files/slivar_vcf_extraction.zip
+An example of results obtained with the dataset is present at this address: https://zenodo.org/records/10723664/files/slivar_vcf_extraction_1709139998.zip
 <br /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;Two folders are present:
-<br />
-| File | Description |
-| --- | --- |
-| **PL_family_WGS_slivar_1664813804** | example of filtering and annotation, obtained using the whole dataset Dyslexia.gatk-vqsr.splitted.norm.vep.merged.vcf.gz |
-| **PL_family_WGS_slivar_1664807682** | example of annotation without slivar filtering, obtained using the example dataset Dyslexia.gatk-vqsr.splitted.norm.vep.merged_first_10.vcf |
-
-<br /><br />
-In each folder:
-<br />
-| File | Description |
+| Files and folder | Description |
 | --- | --- |
 | **reports** | folder containing all the reports of the different processes including the *nextflow.config* file used.
 | **res.vcf.gz** | annotated and filtered VCF file
@@ -241,7 +232,7 @@ In each folder:
 ## VERSIONS
 
 
-The different releases are tagged [here](https://gitlab.pasteur.fr/gmillot/slivar_vcf_extraction/-/tags)
+The different releases are tagged [here](https://github.com/gael-millot/slivar_vcf_extraction/tags)
 
 <br /><br />
 ## LICENCE
@@ -264,7 +255,7 @@ Not yet published
 
 [Freddy Cliquet](https://gitlab.pasteur.fr/fcliquet), GHFC, Institut Pasteur, Paris, France
 
-[Gael A. Millot](https://gitlab.pasteur.fr/gmillot), Hub, Institut Pasteur, Paris, France
+[Gael A. Millot](https://github.com/gael-millot), Hub, Institut Pasteur, Paris, France
 
 <br /><br />
 ## ACKNOWLEDGEMENTS
@@ -285,9 +276,15 @@ Special acknowledgement to [Brent Pedersen](https://github.com/brentp), Utrecht,
 <br /><br />
 ## WHAT'S NEW IN
 
+### v2.3
+
+- Dataset and results are in zenodo.
+- Transfert into github.
+
+
 ### v2.2
 
-README improved. Dataset and results are in zenodo
+README improved.
 
 
 ### v2.0
