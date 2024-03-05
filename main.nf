@@ -48,9 +48,7 @@ annot2 = file(annot2_path)
 
 //////// Checks
 //// check of the bin folder
-if( ! (file("${projectDir}/bin/slivar-functions.js").exists()) ){
-    error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nTHE slivar-functions.js FILE MUST BE PRESENT IN THE ./bin FOLDER, WHERE THE main.nf file IS PRESENT\nIF POINTING TO A DISTANT SERVER, CHECK THAT IT IS MOUNTED\n\n========\n\n"
-}
+// No need since slivar-functions.js is in the parameters
 //// end check of the bin folder
 def file_exists1 = vcf.exists()
 if( ! file_exists1){
