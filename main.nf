@@ -47,9 +47,11 @@ annot2 = file(annot2_path)
 
 
 //////// Checks
-
-// tbi = file("${sample_path}.tbi") does not need .tbi 
-
+//// check of the bin folder
+if( ! (file("${projectDir}/bin/slivar-functions.js").exists()) ){
+    error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nTHE slivar-functions.js FILE MUST BE PRESENT IN THE ./bin FOLDER, WHERE THE main.nf file IS PRESENT\nIF POINTING TO A DISTANT SERVER, CHECK THAT IT IS MOUNTED\n\n========\n\n"
+}
+//// end check of the bin folder
 def file_exists1 = vcf.exists()
 if( ! file_exists1){
     error "\n\n========\n\nERROR IN NEXTFLOW EXECUTION\n\nINVALID sample_path PARAMETER IN nextflow.config FILE: ${sample_path}\nIF POINTING TO A DISTANT SERVER, CHECK THAT IT IS MOUNTED\n\n========\n\n"
