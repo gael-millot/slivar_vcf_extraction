@@ -280,6 +280,11 @@ Special acknowledgement to [Brent Pedersen](https://github.com/brentp), Utrecht,
 <br /><br />
 ## WHAT'S NEW IN
 
+### 2.5
+
+- In the nextflow.config file, downgrade apptainer -> singularity because does not work otherwise.
+
+
 ### 2.4
 
 - In the nextflow.config file, upgrade singularity -> apptainer.
