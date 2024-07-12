@@ -1,5 +1,5 @@
 | Usage | Requirement |
-| --- | --- |
+| :--- | :--- |
 | [![Nextflow](https://img.shields.io/badge/code-Nextflow-blue?style=plastic)](https://www.nextflow.io/) | [![Dependencies: Nextflow Version](https://img.shields.io/badge/Nextflow-v21.04.2-blue?style=plastic)](https://github.com/nextflow-io/nextflow) |
 | [![License: GPL-3.0](https://img.shields.io/badge/licence-GPL%20(%3E%3D3)-green?style=plastic)](https://www.gnu.org/licenses) | [![Dependencies: Apptainer Version](https://img.shields.io/badge/Apptainer-v1.2.3-blue?style=plastic)](https://github.com/apptainer/apptainer) |
 | | [![Dependencies: Graphviz Version](https://img.shields.io/badge/Graphviz-v2.42.2-blue?style=plastic)](https://www.graphviz.org/download/) |
@@ -52,18 +52,18 @@ Thus, pay attention with the family_expr, sample and info parameters in the next
 
 <br /><br />
 ## CONTENT
-
+<br />
 | Files and folder | Description |
-| --- | --- |
+| :--- | :--- |
 | **main.nf** | File that can be executed using a linux terminal, a MacOS terminal or Windows 10 WSL2. |
 | **nextflow.config** | Parameter settings for the *main.nf* file. Users have to open this file, set the desired settings and save these modifications before execution. |
 | **bin folder** | Contains files required by the *main.nf* file. |
 
 <br /><br />
 ## INPUT
-
+<br />
 | Required files |
-| --- |
+| :--- |
 | A variant Calling Format (VCF) file (zipped or not). |
 | A jason file containing functions for the slivar --family-expr option. This file is present in the *bin* folder describe above. |
 | A pedigree file. |
@@ -78,7 +78,7 @@ The dataset used in the *nextflow.config* file, as example, is available at http
 
 
 | Files | Description |
-| --- | --- |
+| :--- | :--- |
 | **example.vcf.gz** | VCF file. Available [here](https://zenodo.org/records/10723664/files/example.vcf.gz). |
 | **pedigree.txt** | Pedigree file. Available [here](https://zenodo.org/records/10723664/files/pedigree.txt?download=1). |
 | **cadd-1.6-SNVs-phred10-GRCh37.zip** | Cadd variant annotation v1.6 filtered at phred10. Available [here](https://zenodo.org/records/10723664/files/cadd-1.6-SNVs-phred10-GRCh37.zip). |
@@ -226,7 +226,7 @@ chmod 755 bin/*.*
 An example of results obtained with the dataset is present at this address: https://zenodo.org/records/10723664/files/slivar_vcf_extraction_1709139998.zip
 <br /><br />
 | Files and folder | Description |
-| --- | --- |
+| :--- | :--- |
 | **reports** | folder containing all the reports of the different processes including the *nextflow.config* file used.
 | **res.vcf.gz** | annotated and filtered VCF file
 | **res.tsv.gz** | VCF file converted into a table, each row representing a different variant and a different patient. Columns description (depending on the tsv_info parameter): <br /><ul><li>mode: slivar info: filtering operated.<br /></li><li>family_id: ID of the family.<br /></li><li>sample_id: code of the patient.<br /></li><li>chr:pos:ref:alt: chromosome, position (in bp), reference allele, alternative allele.<br /></li><li>genotype(sample,dad,mom): 1: , .:no info.<br /></li><li>AC: allele count in genotypes, for each ALT allele, in the same order as listed.<br /></li><li>AF: allele Frequency, for each ALT allele, in the same order as listed.<br /></li><li>AN: total number of alleles in called genotypes.<br /></li><li>BaseQRankSum: Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities.<br /></li><li>DB: dbSNP Membership.<br /></li><li>DP: Approximate read depth; some reads may have been filtered.<br /></li><li>ExcessHet: P hred-scaled p-value for exact test of excess heterozygosity.<br /></li><li>FS: Phred-scaled p-value using Fisher's exact test to detect strand bias.<br /></li><li>InbreedingCoeff: Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation.<br /></li><li>MLEAC: Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed.<br /></li><li>MLEAF: Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed.<br /></li><li>MQ: RMS Mapping Quality.<br /></li><li>MQRankSum: Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities.<br /></li><li>QD: Variant Confidence/Quality by Depth.<br /></li><li>ReadPosRankSum: Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias.<br /></li><li>SOR: Symmetric Odds Ratio of 2x2 contingency table to detect strand bias.<br /></li><li>VQSLOD: Log odds of being a true variant versus being false under the trained gaussian mixture model.<br /></li><li>culprit: The annotation which was the worst performing in the Gaussian mixture model, likely the reason why the variant was filtered out.<br /></li><li>CSQ: Consequence annotations from Ensembl VEP. See the VCF file header for the subfield descriptions.<br /></li><li>cadd_phred: CAAD_PHRED from VEP genome annotation (gnotate),i.e.,  cadd_phred field from the VCF file.<br /></li><li>gno_non_neuro_af_all: gnomad non neuro affected all, i.e., gno_non_neuro_af_all field of the VCF file.<br /></li><li>gno_non_neuro_af_nfe: gnomad non neuro affected non finnish, i.e., gno_non_neuro_af_all field of the VCF file.<br /></li><li>gno_non_neuro_nhomalt_all: gnomad non neuro number of homozygous alternative all, i.e., gno_non_neuro_nhomalt_all field of the VCF file.<br /></li><li>gno_non_neuro_nhomalt_nfe: gnomad non neuro number of homozygous alternative non finnish, i.e., gno_non_neuro_nhomalt_nfe field of the VCF file.<br /></li><li>highest_impact_order: impact order (lower is higher) of this variant across all genes and transcripts it overlaps. this integer can be used as a look into the order list to get the actual impact.<br /></li><li>aff_only: Affected patient codes.<br /></li><li>depths(sample,dad,mom): slivar info: .<br /></li><li>allele_balance(sample,dad,mom): slivar info</li> |
