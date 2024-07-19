@@ -53,6 +53,7 @@ Thus, pay attention with the family_expr, sample and info parameters in the next
 <br /><br />
 ## CONTENT
 <br />
+
 | Files and folder | Description |
 | :--- | :--- |
 | **main.nf** | File that can be executed using a linux terminal, a MacOS terminal or Windows 10 WSL2. |
@@ -62,6 +63,7 @@ Thus, pay attention with the family_expr, sample and info parameters in the next
 <br /><br />
 ## INPUT
 <br />
+
 | Required files |
 | :--- |
 | A variant Calling Format (VCF) file (zipped or not). |
