@@ -185,10 +185,8 @@ Modify the second line of the code below, and run from where the *main.nf* and *
 ```
 HOME_INI=$HOME
 HOME="${HELIXHOME}/slivar_vcf_extraction/" # $HOME changed to allow the creation of .nextflow into /$HELIXHOME/slivar_vcf_extraction/, for instance. See NFX_HOME in the nextflow software script
-trap '' SIGINT
 nextflow-dsl1 run --modules ${MODULES} main.nf -c nextflow.config
 HOME=$HOME_INI
-trap SIGINT
 ```
 
 
@@ -200,11 +198,9 @@ Modify the first and third lines of the code below, and run (results will be whe
 VERSION="v1.0"
 HOME_INI=$HOME
 HOME="${HELIXHOME}/slivar_vcf_extraction/" # $HOME changed to allow the creation of .nextflow into /$HELIXHOME/slivar_vcf_extraction/, for instance. See NFX_HOME in the nextflow software script
-trap '' SIGINT
 nextflow-dsl1 run --modules ${MODULES} gael-millot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config #github, or nextflow-dsl1 run --modules ${MODULES} http://github.com/gael-millot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config
 nextflow-dsl1 run --modules ${MODULES} -hub pasteur gmillot/slivar_vcf_extraction -r $VERSION -c $HOME/nextflow.config # gitlab
 HOME=$HOME_INI
-trap SIGINT
 ```
 
 
